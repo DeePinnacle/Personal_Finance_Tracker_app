@@ -1,0 +1,879 @@
+{
+	"info": {
+		"_postman_id": "b4b74552-c268-4a8c-a7e6-71988d199705",
+		"name": "Personal Finance Tracker",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24859991"
+	},
+	"item": [
+		{
+			"name": "user/register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"shenzidml\",\r\n    \"password\": \"asdfG@12\",\r\n    \"email\": \"officialdeepinnacles@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/finance-tracker/api/register",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"finance-tracker",
+						"api",
+						"register"
+					]
+				},
+				"description": "This api collects users basic informatin like username, email and password, generates a token and saves it to the database."
+			},
+			"response": []
+		},
+		{
+			"name": "user/login",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NzFjOWY2Mjc3ODNkN2E2NmFjMmNhNSIsInVzZXJuYW1lIjoic2hlbnppIiwiZW1haWwiOiJvZmZpY2lhbGRlZXBpbm5hY2xlQGdtYWlsLmNvbSIsImlhdCI6MTcxODczMzMwMywiZXhwIjoxNzE4NzM0NTAzfQ.FiPAVDBnV0oqmT51YXAZpBgt3iwP59jblt_Z4hmrl8g",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\" : \"shenzi\",\r\n    \"password\": \"asdfgH@123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/finance-tracker/api/login",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"finance-tracker",
+						"api",
+						"login"
+					]
+				},
+				"description": "Collect users login credentials, check if it exists on the database, generates a token for the user and log them in."
+			},
+			"response": []
+		},
+		{
+			"name": "user/add/transaction",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NzJkN2I4MGVhYmNmNGYxOGYxNjY5NiIsInVzZXJuYW1lIjoic2hlbnppIiwiZW1haWwiOiJvZmZpY2lhbGRlZXBpbm5hY2xlQGdtYWlsLmNvbSIsImlhdCI6MTcxODk5MzUxMH0.KiVLi-cVVEsbk_sXM3BI1jTJdkcqzFLHhjNjCMr4QUg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"type\": \"Expenses\",\r\n    \"category\": \"Entertainment\",\r\n    \"description\": \"Bought a new car\",\r\n    \"amount\": 5000000,\r\n    \"date\": \"22/09/2024\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/finance-tracker/api/add-transaction",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"finance-tracker",
+						"api",
+						"add-transaction"
+					]
+				},
+				"description": "Once users are securely authenticated and authorized they are able to create thier transactions."
+			},
+			"response": []
+		},
+		{
+			"name": "user/single/transaction",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NzJkN2I4MGVhYmNmNGYxOGYxNjY5NiIsInVzZXJuYW1lIjoic2hlbnppIiwiZW1haWwiOiJvZmZpY2lhbGRlZXBpbm5hY2xlQGdtYWlsLmNvbSIsImlhdCI6MTcxODk5MzUxMH0.KiVLi-cVVEsbk_sXM3BI1jTJdkcqzFLHhjNjCMr4QUg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/finance-tracker/api/transactions",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"finance-tracker",
+						"api",
+						"transactions"
+					]
+				},
+				"description": "this endpoint gets all the transaction for a logged in user."
+			},
+			"response": []
+		},
+		{
+			"name": "user/edit-records",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NzJkN2I4MGVhYmNmNGYxOGYxNjY5NiIsInVzZXJuYW1lIjoic2hlbnppIiwiZW1haWwiOiJvZmZpY2lhbGRlZXBpbm5hY2xlQGdtYWlsLmNvbSIsImlhdCI6MTcxODgwMzAyNn0.0ozo8OLKTFHt-CB3tn0TT6IyP48TOJJer5J2iQA0JTY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/finance-tracker/api/edit-records",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"finance-tracker",
+						"api",
+						"edit-records"
+					]
+				},
+				"description": "this endpoint edits users basic informations, like password, email and username"
+			},
+			"response": []
+		},
+		{
+			"name": "user/delete-account",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NzFjOWY2Mjc3ODNkN2E2NmFjMmNhNSIsInVzZXJuYW1lIjoic2hlbnppIiwiZW1haWwiOiJvZmZpY2lhbGRlZXBpbm5hY2xlQGdtYWlsLmNvbSIsImlhdCI6MTcxODc5NjYwOH0.WOJ-36LL2zultnqakljObkxxory9rHhE7DVmvD7W_II",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/finance-tracker/api/delete-account",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"finance-tracker",
+						"api",
+						"delete-account"
+					]
+				},
+				"description": "this api deletes a logged in users account"
+			},
+			"response": []
+		},
+		{
+			"name": "admin/users",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NzQzOThjNGE0NDdlY2RmMDUzNWU1OCIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxODg5NTY4NCwiZXhwIjoxNzE4OTgyMDg0fQ._Wv3-9L5Xq5iGOEEDulxXFaRKxAHPiwuNLzYTUA659w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/finance-tracker/api/admin/users",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"finance-tracker",
+						"api",
+						"admin",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "admin/transactions",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NzQzOThjNGE0NDdlY2RmMDUzNWU1OCIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxODg5NjI5MSwiZXhwIjoxNzE4OTgyNjkxfQ.J7MtGsCMUAoybAOhZOnb8uIFeHfV6uAQ2f3j3Sq8TaI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/finance-tracker/api/admin/transactions",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"finance-tracker",
+						"api",
+						"admin",
+						"transactions"
+					]
+				},
+				"description": "get all transactions for the admin"
+			},
+			"response": []
+		},
+		{
+			"name": "user/transaction/single/:id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NzJkN2I4MGVhYmNmNGYxOGYxNjY5NiIsInVzZXJuYW1lIjoic2hlbnppIiwiZW1haWwiOiJvZmZpY2lhbGRlZXBpbm5hY2xlQGdtYWlsLmNvbSIsImlhdCI6MTcxODk5MzUxMH0.KiVLi-cVVEsbk_sXM3BI1jTJdkcqzFLHhjNjCMr4QUg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/finance-tracker/api/transactions/single/6672da61127c5283d8020a08",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"finance-tracker",
+						"api",
+						"transactions",
+						"single",
+						"6672da61127c5283d8020a08"
+					]
+				},
+				"description": "this endpoint gets a single transaction for a logged in user."
+			},
+			"response": []
+		},
+		{
+			"name": "user/transaction/edit/:id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NzJkN2I4MGVhYmNmNGYxOGYxNjY5NiIsInVzZXJuYW1lIjoic2hlbnppIiwiZW1haWwiOiJvZmZpY2lhbGRlZXBpbm5hY2xlQGdtYWlsLmNvbSIsImlhdCI6MTcxODg5NjE0N30.YLBCyoIEA5sqDztQPzlzxg7EVj9HWZJpsTIiDAwi7QE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"type\": \"Income\",\r\n    \"category\": \"Salary\",\r\n    \"description\": \"Got paid today\",\r\n    \"amount\": 50000\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/finance-tracker/api/transactions/edit/66744646964d73c15590b744",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"finance-tracker",
+						"api",
+						"transactions",
+						"edit",
+						"66744646964d73c15590b744"
+					]
+				},
+				"description": "edit a single transaction for a logged in user."
+			},
+			"response": []
+		},
+		{
+			"name": "user/transaction/delete/:id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NmRkMzhmYjZiNjFkMzlkODJiZmYxNSIsInVzZXJuYW1lIjoibm9ibGVkbWwiLCJlbWFpbCI6Im5vYmxlZG1sQGdtYWlsLmNvbSIsImlhdCI6MTcxODU1MTQ2NH0.ChroFwpGnjKg43_JxkSHrijRxvkTdQrAA5kJPuy1nHs",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/finance-tracker/api/transactions/delete/666f12440bfb8f6770906d23",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"finance-tracker",
+						"api",
+						"transactions",
+						"delete",
+						"666f12440bfb8f6770906d23"
+					]
+				},
+				"description": "deletes a single transaction for a logged in user"
+			},
+			"response": []
+		},
+		{
+			"name": "user/transactions/filterby/:type",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NzJkN2I4MGVhYmNmNGYxOGYxNjY5NiIsInVzZXJuYW1lIjoic2hlbnppIiwiZW1haWwiOiJvZmZpY2lhbGRlZXBpbm5hY2xlQGdtYWlsLmNvbSIsImlhdCI6MTcxODk5MzUxMH0.KiVLi-cVVEsbk_sXM3BI1jTJdkcqzFLHhjNjCMr4QUg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/finance-tracker/api/transactions/filter-by-type/expenses",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"finance-tracker",
+						"api",
+						"transactions",
+						"filter-by-type",
+						"expenses"
+					]
+				},
+				"description": "filters transaction for logged in users base on type"
+			},
+			"response": []
+		},
+		{
+			"name": "user/transactions/delete",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NmRkMzhmYjZiNjFkMzlkODJiZmYxNSIsInVzZXJuYW1lIjoibm9ibGVkbWwiLCJlbWFpbCI6Im5vYmxlZG1sQGdtYWlsLmNvbSIsImlhdCI6MTcxODQ3MzcyNX0.ysBXdcK0UZy-4fvStbSWC138tZ6rbSVZDtFqmPji-kM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/finance-tracker/api/transactions/delete",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"finance-tracker",
+						"api",
+						"transactions",
+						"delete"
+					]
+				},
+				"description": "deletes all users transactions"
+			},
+			"response": []
+		},
+		{
+			"name": "user/transactions/filterbycategory/:category",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NzJkN2I4MGVhYmNmNGYxOGYxNjY5NiIsInVzZXJuYW1lIjoic2hlbnppIiwiZW1haWwiOiJvZmZpY2lhbGRlZXBpbm5hY2xlQGdtYWlsLmNvbSIsImlhdCI6MTcxODk5MzUxMH0.KiVLi-cVVEsbk_sXM3BI1jTJdkcqzFLHhjNjCMr4QUg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/finance-tracker/api/transactions/filter-by-category/entertainment",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"finance-tracker",
+						"api",
+						"transactions",
+						"filter-by-category",
+						"entertainment"
+					]
+				},
+				"description": "filter transaction by category for a logged in user"
+			},
+			"response": []
+		},
+		{
+			"name": "user/transactions/filterbyamount/:amount",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NzJkN2I4MGVhYmNmNGYxOGYxNjY5NiIsInVzZXJuYW1lIjoic2hlbnppIiwiZW1haWwiOiJvZmZpY2lhbGRlZXBpbm5hY2xlQGdtYWlsLmNvbSIsImlhdCI6MTcxODk5MzUxMH0.KiVLi-cVVEsbk_sXM3BI1jTJdkcqzFLHhjNjCMr4QUg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/finance-tracker/api/transactions/filter-by-amount/500",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"finance-tracker",
+						"api",
+						"transactions",
+						"filter-by-amount",
+						"500"
+					]
+				},
+				"description": "filter transaction by amount for a logged in user"
+			},
+			"response": []
+		},
+		{
+			"name": "user/transaction/totalExpenses",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NzJkN2I4MGVhYmNmNGYxOGYxNjY5NiIsInVzZXJuYW1lIjoic2hlbnppIiwiZW1haWwiOiJvZmZpY2lhbGRlZXBpbm5hY2xlQGdtYWlsLmNvbSIsImlhdCI6MTcxODgwMzAyNn0.0ozo8OLKTFHt-CB3tn0TT6IyP48TOJJer5J2iQA0JTY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/finance-tracker/api/transactions/total-expenses",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"finance-tracker",
+						"api",
+						"transactions",
+						"total-expenses"
+					]
+				},
+				"description": "get total expenses for a logged in user"
+			},
+			"response": []
+		},
+		{
+			"name": "user/transaction/totalIncome",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NzJkN2I4MGVhYmNmNGYxOGYxNjY5NiIsInVzZXJuYW1lIjoic2hlbnppIiwiZW1haWwiOiJvZmZpY2lhbGRlZXBpbm5hY2xlQGdtYWlsLmNvbSIsImlhdCI6MTcxODgwMzAyNn0.0ozo8OLKTFHt-CB3tn0TT6IyP48TOJJer5J2iQA0JTY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/finance-tracker/api/transactions/total-income",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"finance-tracker",
+						"api",
+						"transactions",
+						"total-income"
+					]
+				},
+				"description": "get total income for a logged in user"
+			},
+			"response": []
+		},
+		{
+			"name": "user/deactivate",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NzJkN2I4MGVhYmNmNGYxOGYxNjY5NiIsInVzZXJuYW1lIjoic2hlbnppIiwiZW1haWwiOiJvZmZpY2lhbGRlZXBpbm5hY2xlQGdtYWlsLmNvbSIsImlhdCI6MTcxODk5MzUxMH0.KiVLi-cVVEsbk_sXM3BI1jTJdkcqzFLHhjNjCMr4QUg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/finance-tracker/api/deactivate",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"finance-tracker",
+						"api",
+						"deactivate"
+					]
+				},
+				"description": "deactive a users account"
+			},
+			"response": []
+		},
+		{
+			"name": "user/reactivate-acct",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NzJkN2I4MGVhYmNmNGYxOGYxNjY5NiIsInVzZXJuYW1lIjoic2hlbnppIiwiZW1haWwiOiJvZmZpY2lhbGRlZXBpbm5hY2xlQGdtYWlsLmNvbSIsImlhdCI6MTcxODk5MzUxMH0.KiVLi-cVVEsbk_sXM3BI1jTJdkcqzFLHhjNjCMr4QUg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/finance-tracker/api/reactivate-acct",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"finance-tracker",
+						"api",
+						"reactivate-acct"
+					]
+				},
+				"description": "activate a users account."
+			},
+			"response": []
+		},
+		{
+			"name": "user/verify-account",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NzFjOWY2Mjc3ODNkN2E2NmFjMmNhNSIsInVzZXJuYW1lIjoic2hlbnppIiwiZW1haWwiOiJvZmZpY2lhbGRlZXBpbm5hY2xlQGdtYWlsLmNvbSIsImlhdCI6MTcxODczMzMwMywiZXhwIjoxNzE4NzM0NTAzfQ.FiPAVDBnV0oqmT51YXAZpBgt3iwP59jblt_Z4hmrl8g",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/finance-tracker/api/verify-account/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NzJkN2I4MGVhYmNmNGYxOGYxNjY5NiIsInVzZXJuYW1lIjoic2hlbnppIiwiZW1haWwiOiJvZmZpY2lhbGRlZXBpbm5hY2xlQGdtYWlsLmNvbSIsImlhdCI6MTcxODgwMjM2MCwiZXhwIjoxNzE4ODA0MTYwfQ.iaCxQo5iL9SFAjyvb8_ErqaXA9JP2hbDWBXmWziWKPE",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"finance-tracker",
+						"api",
+						"verify-account",
+						"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NzJkN2I4MGVhYmNmNGYxOGYxNjY5NiIsInVzZXJuYW1lIjoic2hlbnppIiwiZW1haWwiOiJvZmZpY2lhbGRlZXBpbm5hY2xlQGdtYWlsLmNvbSIsImlhdCI6MTcxODgwMjM2MCwiZXhwIjoxNzE4ODA0MTYwfQ.iaCxQo5iL9SFAjyvb8_ErqaXA9JP2hbDWBXmWziWKPE"
+					]
+				},
+				"description": "verify users account upon registration"
+			},
+			"response": []
+		},
+		{
+			"name": "user/forget-password",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"officialdeepinnacle@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/finance-tracker/api/forgot-password",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"finance-tracker",
+						"api",
+						"forgot-password"
+					]
+				},
+				"description": "collects user details to mail reset password link"
+			},
+			"response": []
+		},
+		{
+			"name": "admin/delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/finance-tracker/api/admin/delete/6672d659a6cdcedd75b64e7e",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"finance-tracker",
+						"api",
+						"admin",
+						"delete",
+						"6672d659a6cdcedd75b64e7e"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user/reset-password/:token",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"password\": \"asdfgH@123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/finance-tracker/api/reset-password/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NzJkN2I4MGVhYmNmNGYxOGYxNjY5NiIsImlhdCI6MTcxODk5MzQzMCwiZXhwIjoxNzE4OTk0NjMwfQ._knfb2faHmkcBT8gNyugxs6Kz3wJHZLr-Eo8BVd9XwM",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"finance-tracker",
+						"api",
+						"reset-password",
+						"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NzJkN2I4MGVhYmNmNGYxOGYxNjY5NiIsImlhdCI6MTcxODk5MzQzMCwiZXhwIjoxNzE4OTk0NjMwfQ._knfb2faHmkcBT8gNyugxs6Kz3wJHZLr-Eo8BVd9XwM"
+					]
+				},
+				"description": "reset password mailed to user base on the email provided."
+			},
+			"response": []
+		},
+		{
+			"name": "transaction/mail/income-history",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NzJkN2I4MGVhYmNmNGYxOGYxNjY5NiIsInVzZXJuYW1lIjoic2hlbnppIiwiZW1haWwiOiJvZmZpY2lhbGRlZXBpbm5hY2xlQGdtYWlsLmNvbSIsImlhdCI6MTcxODg5Njk4M30.fWBOV-rji5aR0oSGzE0rFEx78_JOlTF-jJDjhZ0KRZ8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/finance-tracker/api/transactions/mail-income-history",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"finance-tracker",
+						"api",
+						"transactions",
+						"mail-income-history"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "transaction/mail-expenses-history",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NzJkN2I4MGVhYmNmNGYxOGYxNjY5NiIsInVzZXJuYW1lIjoic2hlbnppIiwiZW1haWwiOiJvZmZpY2lhbGRlZXBpbm5hY2xlQGdtYWlsLmNvbSIsImlhdCI6MTcxODg5Njk4M30.fWBOV-rji5aR0oSGzE0rFEx78_JOlTF-jJDjhZ0KRZ8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/finance-tracker/api/transactions/mail-expenses-history",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"finance-tracker",
+						"api",
+						"transactions",
+						"mail-expenses-history"
+					]
+				},
+				"description": "mail expenses history to the user"
+			},
+			"response": []
+		},
+		{
+			"name": "admin/register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/finance-tracker/api/admin/register",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"finance-tracker",
+						"api",
+						"admin",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "admin/login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"admin123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/finance-tracker/api/admin/login",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"finance-tracker",
+						"api",
+						"admin",
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
