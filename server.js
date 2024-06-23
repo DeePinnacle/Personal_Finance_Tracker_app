@@ -33,6 +33,9 @@ app.listen(PORT, ()=>{
 })
 
 // route
+app.get('/', (req, res)=>{
+    res.status(200).json('Welcome to your personal finance tracker app.')
+})
 app.use('/finance-tracker/api', userRouter)
 app.use('/finance-tracker/api', transactionRouter)
 app.use('/finance-tracker/api', adminRouter)
