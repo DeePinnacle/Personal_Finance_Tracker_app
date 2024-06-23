@@ -103,7 +103,7 @@ const adminAuth = async(req, res, next) => {
         next()
 
     }catch(err){
-        return res.status(500).json({ message: 'Only admins have access to this page' })
+        return res.status(500).json({ message: 'Unauthorized access' })
     }
 }
 
